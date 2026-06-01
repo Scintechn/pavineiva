@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Industrial Steel Blue palette — derived from the rebuild brief.
+  - Primary: deep steel-blue for headings, primary CTAs, anchors.
+  - Neutral: concrete grey scale for text, surfaces, borders.
+  - Surface: warm off-white for the page background (less sterile than #fff).
+  - Accent: amber for high-attention CTAs (quote button, FAB).
+  - Semantic: emerald/red for form feedback only.
+*/
+
+@theme {
+  --color-bg: #f6f4ef;
+  --color-surface: #ffffff;
+  --color-surface-muted: #efece6;
+  --color-ink: #0e1620;
+  --color-ink-muted: #4a4e54;
+  --color-line: #d8d4ca;
+
+  --color-primary-50: #f1f5fb;
+  --color-primary-100: #dde7f3;
+  --color-primary-200: #b8cae3;
+  --color-primary-300: #8aa8cd;
+  --color-primary-400: #5b85b6;
+  --color-primary-500: #36639a;
+  --color-primary-600: #284c7c;
+  --color-primary-700: #1d3557;
+  --color-primary-800: #152744;
+  --color-primary-900: #0f1d34;
+  --color-primary-950: #08111f;
+
+  --color-accent-50: #fef6ec;
+  --color-accent-100: #fde6c5;
+  --color-accent-200: #fbcd8d;
+  --color-accent-300: #f8b25a;
+  --color-accent-400: #f49a32;
+  --color-accent-500: #e07a14;
+  --color-accent-600: #b85d0c;
+  --color-accent-700: #8b4309;
+
+  --color-success: #1e7f4d;
+  --color-error: #b1392e;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-display), var(--font-body), ui-sans-serif,
+    system-ui, sans-serif;
+
+  --radius-card: 0.625rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html, body { height: 100%; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus ring: visible only for keyboard users, high contrast against any surface. */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip-to-content link: hidden until focused. */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 12px;
+  background: var(--color-primary-700);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  z-index: 100;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
