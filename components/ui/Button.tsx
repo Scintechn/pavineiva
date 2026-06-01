@@ -9,7 +9,7 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-[var(--color-primary-700)] text-white hover:bg-[var(--color-primary-800)] border border-[var(--color-primary-700)]",
   accent:
-    "bg-[var(--color-accent-500)] text-[#1a0f00] hover:bg-[var(--color-accent-600)] hover:text-white border border-[var(--color-accent-500)] font-semibold",
+    "bg-[var(--color-accent-500)] text-[var(--color-accent-ink,#1a0f00)] hover:bg-[var(--color-accent-600)] hover:text-white border border-[var(--color-accent-500)] font-semibold",
   secondary:
     "bg-white text-[var(--color-primary-800)] hover:bg-[var(--color-primary-50)] border border-[var(--color-primary-700)]",
   ghost:

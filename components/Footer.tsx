@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone, Mail, Printer } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -79,7 +80,49 @@ export function Footer({ locale }: Props) {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-white/60">
+        {/* Cofinanciamento (EU Regulation 2021/1060 Art. 50 publicity requirement)
+            + Livro de Reclamações (PT Decreto-Lei n.º 74/2017) */}
+        <div className="mt-12 border-t border-white/10 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="lg:col-span-9">
+            <p className="text-xs uppercase tracking-wider text-white/55 mb-3">
+              {t.footer.cofinanciadoPor}
+            </p>
+            <a
+              href="/legal/ficha-operacao-norte-2030.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white rounded-md p-3 hover:opacity-90 transition-opacity"
+              title={t.footer.fichaOperacao}
+            >
+              <Image
+                src="/legal/cofinanciamento.png"
+                alt={t.footer.cofinanciamentoAlt}
+                width={520}
+                height={64}
+                className="h-12 sm:h-14 w-auto"
+              />
+            </a>
+          </div>
+          <div className="lg:col-span-3 lg:text-right">
+            <a
+              href="https://www.livroreclamacoes.pt/inicio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity"
+              title={t.footer.livroReclamacoesAlt}
+            >
+              <Image
+                src="/legal/livro-reclamacoes.png"
+                alt={t.footer.livroReclamacoesAlt}
+                width={120}
+                height={50}
+                className="h-12 w-auto bg-white rounded-md p-1"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-8 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-white/60">
           <p>© {year} {business.brandName}. {t.footer.rightsReserved}</p>
           <nav className="flex gap-5">
             <Link href={`/${locale}/privacidade`} className="hover:text-white">

@@ -143,6 +143,10 @@ export type Dictionary = {
     rightsReserved: string;
     privacy: string;
     terms: string;
+    cofinanciadoPor: string;
+    cofinanciamentoAlt: string;
+    fichaOperacao: string;
+    livroReclamacoesAlt: string;
   };
   privacy: {
     meta: { title: string; description: string };

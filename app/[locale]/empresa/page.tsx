@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, BadgeCheck, ChevronRight, Factory } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -44,16 +45,28 @@ export default async function CompanyPage({
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[var(--color-primary-800)] text-white">
-        <Container className="py-16 sm:py-20">
+      {/* Hero with real aerial photo of the Neiva facility */}
+      <section className="relative overflow-hidden bg-[var(--color-primary-800)] text-white">
+        <Image
+          src="/photos/aerial.jpg"
+          alt="Vista aérea da fábrica Pavineiva em Neiva, Viana do Castelo"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-900)]/95 via-[var(--color-primary-800)]/75 to-transparent"
+        />
+        <Container className="relative py-20 sm:py-28">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--color-accent-300)]">
             {t.common.sinceYear(business.foundedYear)} · {t.common.yearsExperience(yearsActive())}
           </p>
           <h1 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] max-w-3xl">
             {t.company.title}
           </h1>
-          <p className="mt-5 text-lg text-white/85 max-w-2xl leading-relaxed">
+          <p className="mt-5 text-lg text-white/90 max-w-2xl leading-relaxed">
             {t.company.lead}
           </p>
         </Container>

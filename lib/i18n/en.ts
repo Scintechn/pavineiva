@@ -307,6 +307,11 @@ export const en: Dictionary = {
     rightsReserved: "All rights reserved.",
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
+    cofinanciadoPor: "Co-financed by",
+    cofinanciamentoAlt:
+      "Co-financed by the Northern Regional Programme (Norte 2030), Portugal 2030 and the European Union",
+    fichaOperacao: "Norte 2030 operation summary (PDF)",
+    livroReclamacoesAlt: "Portuguese electronic Complaint Book",
   },
   privacy: {
     meta: {

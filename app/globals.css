@@ -1,42 +1,43 @@
 @import "tailwindcss";
 
 /*
-  Industrial Steel Blue palette — derived from the rebuild brief.
-  - Primary: deep steel-blue for headings, primary CTAs, anchors.
-  - Neutral: concrete grey scale for text, surfaces, borders.
-  - Surface: warm off-white for the page background (less sterile than #fff).
-  - Accent: amber for high-attention CTAs (quote button, FAB).
-  - Semantic: emerald/red for form feedback only.
+  Charcoal + Signal Orange — palette option 2 (bold, high-contrast).
+  - Primary: gray-800 charcoal for headings, hero, footer.
+  - Neutral: cool grey scale for surfaces, borders, body.
+  - Accent: signal-orange for CTAs / FAB / eyebrows (safety-vest energy).
+  - Semantic: emerald (success), red (error) reserved for form feedback only.
 */
 
 @theme {
-  --color-bg: #f6f4ef;
+  --color-bg: #fafafa;
   --color-surface: #ffffff;
-  --color-surface-muted: #efece6;
-  --color-ink: #0e1620;
-  --color-ink-muted: #4a4e54;
-  --color-line: #d8d4ca;
+  --color-surface-muted: #f4f4f5;
+  --color-ink: #0b0f14;
+  --color-ink-muted: #4b5563;
+  --color-line: #e5e7eb;
 
-  --color-primary-50: #f1f5fb;
-  --color-primary-100: #dde7f3;
-  --color-primary-200: #b8cae3;
-  --color-primary-300: #8aa8cd;
-  --color-primary-400: #5b85b6;
-  --color-primary-500: #36639a;
-  --color-primary-600: #284c7c;
-  --color-primary-700: #1d3557;
-  --color-primary-800: #152744;
-  --color-primary-900: #0f1d34;
-  --color-primary-950: #08111f;
+  /* Charcoal primary scale (Tailwind gray, anchored at gray-800 #1f2937) */
+  --color-primary-50: #f9fafb;
+  --color-primary-100: #f3f4f6;
+  --color-primary-200: #e5e7eb;
+  --color-primary-300: #d1d5db;
+  --color-primary-400: #9ca3af;
+  --color-primary-500: #6b7280;
+  --color-primary-600: #4b5563;
+  --color-primary-700: #374151;
+  --color-primary-800: #1f2937;
+  --color-primary-900: #111827;
+  --color-primary-950: #030712;
 
-  --color-accent-50: #fef6ec;
-  --color-accent-100: #fde6c5;
-  --color-accent-200: #fbcd8d;
-  --color-accent-300: #f8b25a;
-  --color-accent-400: #f49a32;
-  --color-accent-500: #e07a14;
-  --color-accent-600: #b85d0c;
-  --color-accent-700: #8b4309;
+  /* Signal orange accent (Tailwind orange, anchored at orange-600 #ea580c) */
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #ea580c;
+  --color-accent-600: #c2410c;
+  --color-accent-700: #9a3412;
 
   --color-success: #1e7f4d;
   --color-error: #b1392e;
@@ -61,7 +62,7 @@ body {
 
 /* Focus ring: visible only for keyboard users, high contrast against any surface. */
 :focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--color-accent-500);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -71,7 +72,7 @@ body {
   position: absolute;
   top: -40px;
   left: 12px;
-  background: var(--color-primary-700);
+  background: var(--color-primary-800);
   color: #fff;
   padding: 8px 14px;
   border-radius: 6px;

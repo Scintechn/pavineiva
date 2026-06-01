@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Package } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -87,17 +88,35 @@ export default async function ProductsPage({
                   {family.items.map((it) => {
                     const item = t.products.items[it.id];
                     if (!item) return null;
+                    const image = "image" in it ? (it as { image?: string }).image : undefined;
                     return (
                       <li
                         key={it.id}
-                        className="rounded-[var(--radius-card)] border border-[var(--color-line)] bg-[var(--color-surface)] p-5"
+                        className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-line)] bg-[var(--color-surface)]"
                       >
-                        <h3 className="font-display text-base font-semibold text-[var(--color-ink)]">
-                          {item.name}
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-[var(--color-ink-muted)]">
-                          {item.description}
-                        </p>
+                        <div className="aspect-[4/3] relative bg-[var(--color-surface-muted)] border-b border-[var(--color-line)]">
+                          {image ? (
+                            <Image
+                              src={image}
+                              alt={item.name}
+                              fill
+                              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 40vw, 100vw"
+                              className="object-contain p-4"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-[var(--color-primary-300)]">
+                              <Package size={48} aria-hidden="true" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-5">
+                          <h3 className="font-display text-base font-semibold text-[var(--color-ink)]">
+                            {item.name}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+                            {item.description}
+                          </p>
+                        </div>
                       </li>
                     );
                   })}
