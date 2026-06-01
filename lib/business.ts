@@ -32,11 +32,17 @@ export const business = {
   fax: { display: "+351 258 350 489" },
 
   // WhatsApp FAB and inline buttons read `whatsapp.number`. When it's an empty string,
-  // every WhatsApp surface (FAB + buttons) is hidden. Set the digits-only number here
-  // (e.g. "351912345678") to enable.
+  // every WhatsApp surface (FAB + buttons) is hidden.
+  //
+  // PLACEHOLDER (2026-06-01): until the owner provides a real WhatsApp-Business-registered
+  // mobile number, we point at the public landline. PT landlines can be (and often are)
+  // registered on WhatsApp Business. If the number is NOT registered, wa.me gracefully
+  // says "this number is not on WhatsApp" — no embarrassing dead chat.
+  // Replace with the owner's real mobile (digits only, country code first, no `+` or
+  // spaces — e.g. "351912345678") once provided.
   whatsapp: {
-    number: "",
-    display: "",
+    number: "351258350480",
+    display: "+351 258 350 480",
   },
 
   email: {

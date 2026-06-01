@@ -30,8 +30,10 @@ patterns.
 
 - **Opening hours**: assumed standard PT industrial (Mon–Fri 08:00–12:30 / 13:30–18:00). Google
   only confirmed "closes 6 pm" — confirm and adjust `business.hours`.
-- **WhatsApp number**: not publicly known. Set `business.whatsapp.number` (digits-only, e.g.
-  `351912345678`) and `business.whatsapp.display` to enable the FAB.
+- **WhatsApp number**: currently using the landline `351258350480` as a placeholder so the
+  FAB renders. Replace `business.whatsapp.number` + `business.whatsapp.display` with the
+  owner's real WhatsApp-Business mobile number when provided (digits-only, country code
+  first, e.g. `351912345678`).
 - **Exact geo pin + Maps Embed key**: `business.geo` is a postal-code centroid; refine when
   `NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY` is provisioned and uncomment the embed iframe.
 
